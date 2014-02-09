@@ -1,0 +1,107 @@
+---- Minecraft Crash Report ----
+// Don't be sad. I'll do better next time, I promise!
+
+Time: 11/17/13 8:19 PM
+Description: Exception in server tick loop
+
+java.lang.NoSuchFieldError: possibleAcceptors
+	at mekanism.common.EnergyNetwork.refresh(EnergyNetwork.java:283)
+	at mekanism.common.tileentity.TileEntityUniversalCable.refreshTransmitterNetwork(TileEntityUniversalCable.java:146)
+	at mekanism.api.transmitters.TransmitterNetworkRegistry$NetworkLoader.refreshChunk(TransmitterNetworkRegistry.java:151)
+	at mekanism.api.transmitters.TransmitterNetworkRegistry$NetworkLoader.onChunkLoad(TransmitterNetworkRegistry.java:131)
+	at net.minecraftforge.event.ASMEventHandler_76_NetworkLoader_onChunkLoad_Load.invoke(.dynamic)
+	at net.minecraftforge.event.ASMEventHandler.invoke(ASMEventHandler.java:39)
+	at net.minecraftforge.event.EventBus.post(EventBus.java:108)
+	at net.minecraft.world.chunk.Chunk.func_76631_c(Chunk.java:1079)
+	at net.minecraft.world.gen.ChunkProviderServer.func_73158_c(ChunkProviderServer.java:150)
+	at net.minecraft.world.gen.ChunkProviderServer.func_73154_d(ChunkProviderServer.java:166)
+	at net.minecraft.world.World.func_72964_e(World.java:529)
+	at net.minecraft.world.World.func_72838_d(World.java:1578)
+	at net.minecraft.server.management.ServerConfigurationManager.func_72377_c(ServerConfigurationManager.java:267)
+	at net.minecraft.server.management.ServerConfigurationManager.func_72355_a(ServerConfigurationManager.java:136)
+	at net.minecraft.network.NetLoginHandler.completeConnection(NetLoginHandler.java:201)
+	at cpw.mods.fml.common.network.FMLNetworkHandler.handleClientConnection(FMLNetworkHandler.java:167)
+	at cpw.mods.fml.common.network.FMLNetworkHandler.onConnectionReceivedFromClient(FMLNetworkHandler.java:121)
+	at net.minecraft.network.NetLoginHandler.func_72529_d(NetLoginHandler.java:185)
+	at net.minecraft.network.NetLoginHandler.func_72532_c(NetLoginHandler.java:71)
+	at net.minecraft.server.ServerListenThread.func_71766_a(ServerListenThread.java:55)
+	at net.minecraft.server.dedicated.DedicatedServerListenThread.func_71747_b(SourceFile:29)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:691)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:276)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:587)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:484)
+	at net.minecraft.server.ThreadMinecraftServer.run(SourceFile:583)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.6.4
+	Operating System: Linux (amd64) version 3.2.0-54-virtual
+	Java Version: 1.7.0_25, Oracle Corporation
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1062592296 bytes (1013 MB) / 1351942144 bytes (1289 MB) up to 1908932608 bytes (1820 MB)
+	JVM Flags: 2 total; -Xmx2G -Xms1G
+	AABB Pool Size: 2853 (159768 bytes; 0 MB) allocated, 2607 (145992 bytes; 0 MB) used
+	Suspicious classes: FML and Forge are installed
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 60
+	FML: MCP v8.11 FML v6.4.45.952 Minecraft Forge 9.11.1.952 51 mods loaded, 51 mods active
+	mcp{8.09} [Minecraft Coder Pack] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	FML{6.4.45.952} [Forge Mod Loader] (minecraftforge-universal-1.6.4-9.11.1.952.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Forge{9.11.1.952} [Minecraft Forge] (minecraftforge-universal-1.6.4-9.11.1.952.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	CodeChickenCore{0.9.0.6} [CodeChicken Core] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Micdoodlecore{} [Micdoodle8 Core] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	NotEnoughItems{1.6.1.5} [Not Enough Items] (NotEnoughItems 1.6.1.5.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	TConstruct-Preloader{0.0.1} [Tinkers Corestruct] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ArchimedesShipsMod{1.6.4 v1.4.5} [Archimedes' Ships] (ArchimedesShips.zip) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Artifice{1.6.4R1.1.3} [Artifice] (Artifice-1.1.3-195.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ArtificeCompat|Chisel{1.6.4R1.1.3} [Artifice Compat: Chisel] (Artifice-1.1.3-195.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ArtificeCompat|EE3{1.6.4R1.1.3} [Artifice Compat: EE3] (Artifice-1.1.3-195.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ArtificeCompat|Forestry{1.6.4R1.1.3} [Artifice Compat: Forestry] (Artifice-1.1.3-195.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ArtificeCompat|MFR{1.6.4R1.1.3} [Artifice Compat: MFR] (Artifice-1.1.3-195.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ArtificeCompat|Railcraft{1.6.4R1.1.3} [Artifice Compat: Railcraft] (Artifice-1.1.3-195.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ArtificeCompat|Vanilla{1.6.4R1.1.3} [Artifice Compat: Vanilla] (Artifice-1.1.3-195.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	AtomicScience{1.0.0} [Atomic Science] (Atomic_Science_v1.0.0.146.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BiblioCraft{1.5.1} [BiblioCraft] (BiblioCraft[v1.5.1].zip) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BiomesOPlenty{1.1.2} [Biomes O' Plenty] (BiomesOPlenty-universal-1.6.4-1.1.2.51.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BuildCraft|Core{4.1.2} [BuildCraft] (buildcraft-A-1.6.2-4.1.2.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BuildCraft|Energy{4.1.2} [BC Energy] (buildcraft-A-1.6.2-4.1.2.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	GalacticraftCore{2.0.6} [Galacticraft Core] (Galacticraft-1.6.4-2.0.6.895.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	GalacticraftMars{2.0.6} [Galacticraft Mars] (Galacticraft-Planets-1.6.4-2.0.6.895.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Hats{2.0.2} [Hats] (Hats2.0.2.zip) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	HatStand{2.0.0} [HatStand] (HatStand2.0.0.zip) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Mekanism{5.6.0} [Mekanism] (Mekanism-v5.6.0.407.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	MekanismGenerators{5.6.0} [MekanismGenerators] (MekanismGenerators-v5.6.0.407.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	MekanismTools{5.6.0} [MekanismTools] (MekanismTools-v5.6.0.407.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	NEIPlugins{1.1.0.4} [NEI Plugins] (NEIPlugins-1.1.0.4.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	resonantinduction{0.2.2} [Resonant Induction] (Resonant_Induction_v0.2.2.208.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	rftl{1.0} [RottenFleshToLeather] (RottenFleshToLeather-1.5.1.zip) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	SS2{2 (build 2)} [Soul Shards 2] (SoulShards-2.0.13-universal-srg.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	StevesCarts{2.0.0.a134} [Steve's Carts 2] (StevesCarts2.0.0.a134.zip) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	TConstruct{1.6.X_1.5.1d} [Tinkers' Construct] (TConstruct_1.6.4_1.5.0.2.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	TConstruct|ForgeMuliPart{0.1} [TConstruct Compat: FMP] (TConstruct_1.6.4_1.5.0.2.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	TConstruct|CompatMineFactoryReloaded{0.2} [TConstruct Compat: MFR] (TConstruct_1.6.4_1.5.0.2.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	TConstruct|NotEnoughItems{0.1} [TConstruct Compat: NEI] (TConstruct_1.6.4_1.5.0.2.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	TConstruct|CompatWaila{0.0.1} [TConstruct Compat: Waila] (TConstruct_1.6.4_1.5.0.2.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	tuxweapons{0.5b} [Tux Weapons] (TuxWeapons 0.5b.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	bspkrsCore{v5.0(1.6.4)} [bspkrsCore] ([1.6.4]bspkrsCorev5.0.zip) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	TreeCapitator{Forge 1.6.4.r06} [Treecapitator] ([1.6.4]TreeCapitator.Forge.1.6.4.r06.Universal.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	mod_bspkrsCore{v5.0(1.6.4)} [bspkrsCore] ([1.6.4]bspkrsCorev5.0.zip) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	cfm{3.2} [§4MrCrayfish's Furniture Mod] ([Forge]FurnitureModv3.2(1.6.4).zip) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BuildCraft|Builders{4.1.2} [BC Builders] (buildcraft-A-1.6.2-4.1.2.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BuildCraft|Factory{4.1.2} [BC Factory] (buildcraft-A-1.6.2-4.1.2.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BuildCraft|Transport{4.1.2} [BC Transport] (buildcraft-A-1.6.2-4.1.2.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BuildCraft|Silicon{4.1.2} [BC Silicon] (buildcraft-A-1.6.2-4.1.2.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ImmibisCore{57.1.4} [Immibis Core] (immibis-core-57.1.4.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	DimensionalAnchors{57.0.0} [Dimensional Anchors] (dimensional-anchor-57.0.0.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Mystcraft{0.10.11.00} [Mystcraft] (mystcraft-uni-1.6.4-0.10.11.00.zip) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Tubestuff{57.0.2} [Tubestuff] (tubestuff-57.0.2.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	TwilightForest{1.20.2} [The Twilight Forest] (twilightforest-1.20.2.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	TConstruct Environment: Sane and ready for action. Bugs may be reported.
+	Profiler Position: N/A (disabled)
+	Vec3 Pool Size: 550 (30800 bytes; 0 MB) allocated, 351 (19656 bytes; 0 MB) used
+	Player Count: 1 / 6; [GCCorePlayerMP['slixen'/240, l='world', x=382.36, y=64.00, z=466.30]]
+	Is Modded: Definitely; Server brand changed to 'fml,forge'
+	Type: Dedicated Server (map_server.txt)
